@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sentier des Souvenirs - L'Île Flottante des Amoureux</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ee5b2b",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221510",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                    backgroundImage: {
+                        'lavender-sky': 'linear-gradient(to bottom, #E6E6FA, #F8F6F6)',
+                        'lavender-sky-dark': 'linear-gradient(to bottom, #2D1B2E, #221510)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom 3D Carousel Styles */
+        .carousel-container {
+            perspective: 1000px;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .photo-card {
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backface-visibility: hidden;
+        }
+
+        /* Simulating the "Golden Thread" suspension */
+        .golden-thread {
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, #FFD700);
+            z-index: -1;
+            transform-origin: bottom center;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(2deg); }
+            100% { transform: translateY(0px) rotateX(0deg); }
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element-delayed {
+            animation: float 7s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        .floating-element-slow {
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        /* Particle effects */
+        .petal {
+            position: absolute;
+            background: rgba(255, 192, 203, 0.6);
+            border-radius: 100% 0 100% 0;
+            pointer-events: none;
+            animation: drift 15s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(100px, 100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 min-h-screen flex flex-col overflow-hidden relative selection:bg-primary selection:text-white">
+<!-- Background Ambience -->
+<div class="absolute inset-0 bg-lavender-sky dark:bg-lavender-sky-dark -z-50"></div>
+<!-- Abstract 3D Environment Hints (Giant Flower/Island Blur) -->
+<div class="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] rounded-full bg-primary/10 blur-[100px] -z-40"></div>
+<div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-purple-300/20 dark:bg-purple-900/20 blur-[80px] -z-40"></div>
+<!-- Floating Particles/Petals -->
+<div class="petal w-4 h-4 left-[10%] top-[-20px]"></div>
+<div class="petal w-3 h-3 left-[25%] top-[-50px]" style="animation-delay: 2s; background: rgba(238, 91, 43, 0.3);"></div>
+<div class="petal w-5 h-5 left-[60%] top-[-30px]" style="animation-delay: 5s;"></div>
+<div class="petal w-4 h-4 left-[80%] top-[-10px]" style="animation-delay: 1s; background: rgba(238, 91, 43, 0.2);"></div>
+<!-- Header UI -->
+<header class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center pointer-events-none">
+<div class="pointer-events-auto bg-white/30 dark:bg-black/30 backdrop-blur-md border border-white/20 px-6 py-3 rounded-full shadow-lg">
+<h1 class="text-sm font-semibold tracking-widest uppercase text-primary dark:text-primary drop-shadow-sm">
+                L'Île Flottante des Amoureux
+            </h1>
+</div>
+<div class="pointer-events-auto">
+<button class="group flex items-center gap-2 bg-white/30 dark:bg-black/30 backdrop-blur-md border border-white/20 hover:bg-primary hover:border-primary text-gray-800 dark:text-white hover:text-white px-5 py-3 rounded-full transition-all duration-300 shadow-lg">
+<span class="material-icons text-sm">grid_view</span>
+<span class="text-sm font-medium">Island Map</span>
+</button>
+</div>
+</header>
+<!-- Main 3D Carousel Viewport -->
+<main class="flex-grow flex items-center justify-center relative perspective-[1200px] carousel-container z-10 w-full h-screen">
+<!-- Section Title (Floating) -->
+<div class="absolute top-[15%] left-1/2 -translate-x-1/2 text-center z-20 pointer-events-none">
+<h2 class="text-4xl md:text-5xl font-light text-gray-800 dark:text-white tracking-tight drop-shadow-lg mb-2" style="text-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                Sentier des Souvenirs
+            </h2>
+<div class="w-16 h-1 bg-primary mx-auto rounded-full opacity-60"></div>
+</div>
+<!-- Carousel Track -->
+<div class="relative w-full max-w-7xl h-[600px] flex items-center justify-center transform-style-3d">
+<!-- Left Frame (Background) -->
+<div class="absolute left-[5%] md:left-[10%] scale-75 opacity-60 blur-[2px] floating-element-slow transform -rotate-y-12 transition-all duration-500 cursor-pointer hover:opacity-80 hover:blur-0 group">
+<div class="golden-thread h-[150px]"></div>
+<div class="relative bg-[#8B5A2B] p-3 rounded-xl shadow-2xl rotate-y-12 border border-[#a67c52]">
+<div class="bg-white p-1 rounded-lg overflow-hidden">
+<img alt="Couple kissing under an umbrella in the rain" class="w-[300px] h-[400px] object-cover rounded-md filter sepia-[0.3]" data-alt="Couple kissing under an umbrella in the rain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArRepbwe7AYQ3MnGHIU9VosfmY4NBvSSeQk4t-KdzSYXBxUth7ckpdolZOfob1IvFG2SPIECKd_Ro_gB1JDYKzmHzPMAuZeHWwPy1fvp4VMu4soVn2x5pD_tVM3K-wENHv42WxQ3ylZNhS-KeGkCrGETbpBTk3ZUDjBkBVBNVn0nMzqBjmzC81X_P6KFpRb8Mj6hyh9M2CuT7IQXmWHG5cXaZ8e_BHi5QmcEsPDA2xZADz7C9RyQ23s4_k1FsGYXLFurd12FbYGL8"/>
+</div>
+</div>
+<!-- Hover Hint -->
+<div class="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium text-gray-600 dark:text-gray-300 whitespace-nowrap">
+                    Previous Memory
+                </div>
+</div>
+<!-- Center Frame (Active Focus) -->
+<div class="relative z-30 scale-110 floating-element">
+<div class="golden-thread h-[120px] top-[-120px] w-[3px] bg-gradient-to-b from-transparent via-[#FFD700] to-[#FFD700]"></div>
+<!-- Wooden Frame with Glow -->
+<div class="relative bg-gradient-to-br from-[#8B5A2B] to-[#5C3A1A] p-4 rounded-[2rem] shadow-[0_20px_60px_-10px_rgba(238,91,43,0.3)] ring-1 ring-white/20 dark:ring-white/10">
+<!-- Inner Glow Wrapper -->
+<div class="relative rounded-[1.5rem] overflow-hidden shadow-inner bg-black">
+<img alt="Couple laughing together in a field at sunset" class="w-[380px] h-[520px] md:w-[450px] md:h-[600px] object-cover hover:scale-105 transition-transform duration-700 ease-out" data-alt="Couple laughing together in a field at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnQJmaY_-tOLuRiPejMcu-VTg9MfLcjgAvUMboNpQ54IdldafIZzHtezwKrblzwNH_dPONju9ArD7OykwUrP0KJWbjL3QAuzoazwpqFrVaFfg5ktJUSVgzYUrfwx7ZgNZQXe4cAuswaKsGDLk5CVygm-5v0vClKM3Kz0wufTACWGq1jtiAi32SnPClQX_smI8PQmARq1j4b1MC8UieOFuSpQxFkWTk3jlXssajssWPMxQMmhAmbVVsWjGv0p2xIxLVGCx_flDelcM"/>
+<!-- Shine Effect -->
+<div class="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent pointer-events-none"></div>
+</div>
+<!-- Decorative Corner Accents (Gold) -->
+<div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-[#FFD700]/60 rounded-tl-xl pointer-events-none"></div>
+<div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-[#FFD700]/60 rounded-br-xl pointer-events-none"></div>
+</div>
+<!-- Caption Overlay -->
+<div class="absolute -bottom-24 left-1/2 -translate-x-1/2 w-[120%] text-center">
+<div class="inline-block bg-white/40 dark:bg-black/40 backdrop-blur-xl border border-white/30 px-6 py-4 rounded-2xl shadow-lg transform transition-all hover:scale-105">
+<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-1">First Anniversary</h3>
+<p class="text-sm font-light text-gray-700 dark:text-gray-300">Paris, June 12th • The day we promised forever</p>
+</div>
+</div>
+</div>
+<!-- Right Frame (Background) -->
+<div class="absolute right-[5%] md:right-[10%] scale-75 opacity-60 blur-[2px] floating-element-delayed transform rotate-y-12 transition-all duration-500 cursor-pointer hover:opacity-80 hover:blur-0 group">
+<div class="golden-thread h-[150px]"></div>
+<div class="relative bg-[#8B5A2B] p-3 rounded-xl shadow-2xl rotate-y-12 border border-[#a67c52]">
+<div class="bg-white p-1 rounded-lg overflow-hidden">
+<img alt="Close up of holding hands wearing rings" class="w-[300px] h-[400px] object-cover rounded-md filter sepia-[0.2]" data-alt="Close up of holding hands wearing rings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChJTTN8-olVuFzDgLJAsGS0wXp0E5Xt9QZME8YAXETH6gM3mjjkWeqy-3laE0xoYWeyzR08iOuwREXz5j2jV5ZLjOu3tA78PIE6IGCNhdVto_svFrrVkhA3NaFJlB0-Nbcm2OBKvpeIih5cYd0hq-pJ83xuM9Ps5-ML-dYmkbgOc3yn5osZHc597HnUyO9yxEMgkhgKpnaVG0xBmqEzUvkFYiCQwLpXxuYlD9mQkwDr8Efy3audsrZqtyOytCKS6xLAmxgGtmf2I4"/>
+</div>
+</div>
+<!-- Hover Hint -->
+<div class="absolute -bottom-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium text-gray-600 dark:text-gray-300 whitespace-nowrap">
+                    Next Memory
+                </div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Controls -->
+<nav class="fixed bottom-0 left-0 w-full p-8 pb-12 z-50 flex items-center justify-between pointer-events-none">
+<!-- Left Arrow -->
+<button class="pointer-events-auto group w-14 h-14 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary hover:scale-110 hover:shadow-[0_0_20px_rgba(238,91,43,0.5)]">
+<span class="material-icons text-gray-800 dark:text-white group-hover:text-white transition-colors text-3xl">chevron_left</span>
+</button>
+<!-- Center Controls -->
+<div class="pointer-events-auto flex flex-col items-center gap-6">
+<!-- Pagination Dots -->
+<div class="flex gap-3">
+<button class="w-2.5 h-2.5 rounded-full bg-gray-400/50 hover:bg-primary transition-colors"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_10px_rgba(238,91,43,0.8)] scale-125"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-gray-400/50 hover:bg-primary transition-colors"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-gray-400/50 hover:bg-primary transition-colors"></button>
+</div>
+<!-- Back to Center Action -->
+<button class="flex items-center gap-2 bg-primary/90 hover:bg-primary text-white px-6 py-3 rounded-full shadow-lg shadow-primary/30 transition-all hover:translate-y-[-2px] hover:shadow-primary/50 backdrop-blur-sm">
+<span class="material-icons text-sm">center_focus_strong</span>
+<span class="font-medium tracking-wide text-sm">Back to Center</span>
+</button>
+</div>
+<!-- Right Arrow -->
+<button class="pointer-events-auto group w-14 h-14 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 hover:bg-primary hover:border-primary hover:scale-110 hover:shadow-[0_0_20px_rgba(238,91,43,0.5)]">
+<span class="material-icons text-gray-800 dark:text-white group-hover:text-white transition-colors text-3xl">chevron_right</span>
+</button>
+</nav>
+<!-- Overlay Grain Texture for 'Film' Feel -->
+<div class="pointer-events-none fixed inset-0 z-[60] opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
+</body></html>

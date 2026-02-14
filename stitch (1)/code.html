@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Le Puits aux Souhaits - Message Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#e8304f",
+              "background-light": "#f8f6f6",
+              "background-dark": "#211114",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans", "sans-serif"],
+              "script": ["Great Vibes", "cursive"],
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'fade-in-up': 'fadeInUp 1s ease-out forwards',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                fadeInUp: {
+                    '0%': { opacity: '0', transform: 'translateY(20px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom Bokeh Background */
+        .bokeh-bg {
+            background-color: #f8f6f6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(232, 48, 79, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(232, 48, 79, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 60%);
+        }
+        
+        /* Glassmorphism utility */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px 0 rgba(232, 48, 79, 0.1);
+        }
+
+        /* Particle Animation Sim (CSS only) */
+        .particle {
+            position: absolute;
+            background: rgba(232, 48, 79, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-up var(--duration) linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-background-light font-display text-gray-800 antialiased overflow-hidden h-screen w-screen relative selection:bg-primary selection:text-white">
+<!-- Background Layer: Simulated 3D Environment -->
+<!-- This div represents the blurred 3D scene behind the UI -->
+<div class="absolute inset-0 z-0 overflow-hidden">
+<!-- Main Background Image simulating the well interior/surroundings -->
+<img alt="Blurred view of magical water and stone textures" class="absolute inset-0 w-full h-full object-cover blur-sm scale-105 opacity-80" data-alt="Blurred magical water and stone texture background" data-location="The Wishing Well" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVNtMnMy4IwDoKcrNq9uHBglAAg6pmjht3rAkmR6qKw68fOsURE_IcuWjFIviqkt7qu-gR1vU9DAFZcmXgU60ITXM2sVpqJauxVNj3Cl2NPam2mPB5e89v7-sJD8cc9cQ3ohIIt8E_Y8QviyfJhRcEMPGf0uw74PZPbYK7edbD52nkTWn9zFnqdCj_Uc0QIiJtgibPFc9tXYpEvPsjwCtR64LJqAtg7ztExDXNOcxfaxnIlxLbEGGhYl9uno7TPM8KhBsfUXmbaRg"/>
+<!-- Overlay Gradients for Atmosphere -->
+<div class="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-white/40 mix-blend-overlay"></div>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-primary/10"></div>
+<!-- Animated Particles -->
+<div class="particle" style="left: 10%; width: 6px; height: 6px; --duration: 8s; animation-delay: 0s;"></div>
+<div class="particle" style="left: 30%; width: 4px; height: 4px; --duration: 12s; animation-delay: 2s;"></div>
+<div class="particle" style="left: 70%; width: 8px; height: 8px; --duration: 10s; animation-delay: 4s;"></div>
+<div class="particle" style="left: 85%; width: 5px; height: 5px; --duration: 14s; animation-delay: 1s;"></div>
+<div class="particle" style="left: 50%; width: 3px; height: 3px; --duration: 9s; animation-delay: 5s;"></div>
+</div>
+<!-- UI Overlay Layer -->
+<main class="relative z-10 w-full h-full flex flex-col items-center justify-center p-6">
+<!-- Top Navigation / Controls -->
+<div class="absolute top-8 left-0 right-0 px-8 flex justify-between items-center w-full max-w-7xl mx-auto">
+<!-- Back Button -->
+<button class="group flex items-center gap-3 bg-white/80 hover:bg-white backdrop-blur-md px-5 py-3 rounded-full shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5">
+<span class="material-icons-round text-primary text-xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="text-sm font-semibold text-gray-600 group-hover:text-primary transition-colors">Retour à l'île</span>
+</button>
+<!-- Sound Toggle -->
+<button class="w-12 h-12 flex items-center justify-center bg-white/80 hover:bg-white backdrop-blur-md rounded-full shadow-sm text-gray-500 hover:text-primary transition-all duration-300">
+<span class="material-icons-round">volume_up</span>
+</button>
+</div>
+<!-- Central Content: The Parchment -->
+<div class="w-full max-w-lg relative perspective-1000 animate-fade-in-up">
+<!-- Floating Decorative Elements behind parchment -->
+<div class="absolute -top-12 -right-12 w-24 h-24 bg-gradient-to-br from-primary/20 to-transparent rounded-full blur-xl animate-pulse-slow"></div>
+<div class="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-tr from-blue-300/20 to-transparent rounded-full blur-xl animate-pulse-slow" style="animation-delay: 1s;"></div>
+<!-- The Parchment Card -->
+<div class="glass-panel rounded-xl p-1 relative overflow-hidden animate-float">
+<!-- Inner Border/Texture -->
+<div class="bg-white/40 border border-white/60 rounded-[calc(2rem-4px)] p-8 md:p-12 text-center relative">
+<!-- Decorative Header Icon -->
+<div class="mx-auto w-12 h-12 flex items-center justify-center bg-primary/10 rounded-full mb-6">
+<span class="material-icons-round text-primary text-2xl">auto_awesome</span>
+</div>
+<!-- Meta Label -->
+<h2 class="text-xs uppercase tracking-[0.2em] font-bold text-primary/80 mb-8">Le Puits aux Souhaits</h2>
+<!-- The Message (Handwritten Style) -->
+<div class="relative mb-10 min-h-[180px] flex items-center justify-center">
+<span class="text-6xl absolute -top-4 -left-2 text-primary/10 font-serif">“</span>
+<p class="font-script text-4xl md:text-5xl text-gray-800 leading-tight">
+                            Mon amour,<br/>
+                            Chaque jour passé avec toi est une nouvelle aventure magique.
+                        </p>
+<span class="text-6xl absolute -bottom-8 -right-2 text-primary/10 font-serif">”</span>
+</div>
+<!-- Date Stamp -->
+<div class="flex items-center justify-center gap-2 mb-10 opacity-60">
+<span class="h-px w-8 bg-gray-400"></span>
+<span class="text-sm font-medium italic text-gray-600">14 Octobre 2023</span>
+<span class="h-px w-8 bg-gray-400"></span>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col gap-4 items-center">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-medium py-4 px-8 rounded-full shadow-lg shadow-primary/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group">
+<span>Lire le prochain voeu</span>
+<span class="material-icons-round text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="text-sm font-semibold text-gray-500 hover:text-primary transition-colors py-2 px-4 rounded-full hover:bg-primary/5">
+                            Écrire un nouveau souhait
+                        </button>
+</div>
+</div>
+</div>
+<!-- Bottom reflection hint (simulating water reflection) -->
+<div class="absolute -bottom-20 left-10 right-10 h-16 bg-white/20 blur-2xl rounded-[100%] transform scale-y-50"></div>
+</div>
+<!-- Bottom Ambient Info -->
+<div class="absolute bottom-8 text-center animate-fade-in-up" style="animation-delay: 0.5s;">
+<p class="text-white/80 text-sm font-medium drop-shadow-md flex items-center gap-2">
+<span class="material-icons-round text-base animate-bounce">keyboard_double_arrow_up</span>
+                Glissez pour voir le puits
+            </p>
+</div>
+</main>
+<!-- Overlay Grain Texture for 'Old Paper' feel (very subtle) -->
+<div class="pointer-events-none fixed inset-0 opacity-[0.03] z-50 mix-blend-multiply" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');"></div>
+</body></html>
