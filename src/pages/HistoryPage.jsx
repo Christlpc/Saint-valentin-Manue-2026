@@ -61,14 +61,14 @@ const HistoryPage = () => {
             <motion.div className="fixed top-0 left-0 right-0 h-1 bg-primary origin-left z-[100]" style={{ scaleX }} />
 
             {/* Navigation */}
-            <header className="fixed top-12 left-12 z-50">
+            <header className="fixed top-6 md:top-12 left-6 md:left-12 z-50">
                 <Link to="/" className="no-underline group">
                     <motion.div
                         whileHover={{ x: -10 }}
-                        className="bg-white/10 backdrop-blur-xl border border-white/20 px-10 py-5 rounded-full shadow-2xl flex items-center gap-6"
+                        className="bg-white/10 backdrop-blur-xl border border-white/20 px-6 md:px-10 py-3 md:py-5 rounded-full shadow-2xl flex items-center gap-4 md:gap-6"
                     >
-                        <span className="material-icons text-primary group-hover:scale-125 transition-transform">favorite</span>
-                        <h1 className="text-[11px] font-black uppercase tracking-[0.5em] text-white m-0">L'Île Flottante</h1>
+                        <span className="material-icons text-primary group-hover:scale-125 transition-transform text-xl md:text-2xl">favorite</span>
+                        <h1 className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-white m-0">L'Île Flottante</h1>
                     </motion.div>
                 </Link>
             </header>
@@ -93,7 +93,7 @@ const HistoryPage = () => {
                         initial={{ y: 40, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.3 }}
-                        className="text-7xl md:text-9xl font-['Playfair_Display'] italic font-light mb-12 leading-[1.1]"
+                        className="text-5xl sm:text-7xl md:text-9xl font-['Playfair_Display'] italic font-light mb-12 leading-[1.1]"
                     >
                         Notre Histoire Poétique
                     </motion.h2>
@@ -114,7 +114,7 @@ const HistoryPage = () => {
             </section>
 
             {/* Narrative Story */}
-            <main className="max-w-7xl mx-auto px-12 py-32 space-y-64">
+            <main className="max-w-7xl mx-auto px-6 md:px-12 py-32 space-y-32 md:space-y-64">
                 {storySections.map((section, index) => (
                     <section key={index} className={`flex flex-col ${section.align === 'right' ? 'md:flex-row-reverse' : section.align === 'center' ? 'items-center' : 'md:flex-row'} gap-20 items-center`}>
                         <motion.div
@@ -125,10 +125,10 @@ const HistoryPage = () => {
                             className={`${section.align === 'center' ? 'w-full text-center' : 'w-full md:w-1/2'} space-y-12`}
                         >
                             <div className="space-y-4">
-                                <span className="text-primary font-black text-[13px] uppercase tracking-[0.5em] block">{section.date}</span>
-                                <h3 className="text-6xl md:text-8xl font-['Playfair_Display'] italic font-medium tracking-tight">{section.title}</h3>
+                                <span className="text-primary font-black text-[11px] md:text-[13px] uppercase tracking-[0.5em] block">{section.date}</span>
+                                <h3 className="text-4xl sm:text-6xl md:text-8xl font-['Playfair_Display'] italic font-medium tracking-tight">{section.title}</h3>
                             </div>
-                            <p className="text-2xl md:text-3xl font-light text-white/70 leading-relaxed font-body">
+                            <p className="text-xl sm:text-2xl md:text-3xl font-light text-white/70 leading-relaxed font-body">
                                 {section.text}
                             </p>
                         </motion.div>
@@ -141,11 +141,11 @@ const HistoryPage = () => {
                             className={`${section.align === 'center' ? 'w-full max-w-4xl' : 'w-full md:w-1/2'} rounded-3xl overflow-hidden shadow-2xl border border-white/10`}
                         >
                             {section.video || section.isVideo ? (
-                                <video autoPlay loop muted playsInline className="w-full h-[600px] object-cover">
+                                <video autoPlay loop muted playsInline className="w-full h-[350px] sm:h-[450px] md:h-[600px] object-cover">
                                     <source src={section.video || section.image} type="video/mp4" />
                                 </video>
                             ) : (
-                                <img src={section.image} alt={section.title} className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-[3s]" />
+                                <img src={section.image} alt={section.title} className="w-full h-[350px] sm:h-[450px] md:h-[600px] object-cover hover:scale-105 transition-transform duration-[3s]" />
                             )}
                         </motion.div>
                     </section>
@@ -153,18 +153,18 @@ const HistoryPage = () => {
 
                 {/* Final Cta */}
                 <section className="py-32 text-center space-y-16">
-                    <div className="space-y-8">
-                        <h4 className="text-4xl md:text-6xl font-['Playfair_Display'] italic">À suivre...</h4>
-                        <p className="text-xl text-white/40 uppercase tracking-[0.8em]">L'infini nous attend</p>
+                    <div className="space-y-4 md:space-y-8">
+                        <h4 className="text-3xl md:text-6xl font-['Playfair_Display'] italic">À suivre...</h4>
+                        <p className="text-sm md:text-xl text-white/40 uppercase tracking-[0.5em] md:tracking-[0.8em]">L'infini nous attend</p>
                     </div>
-                    <div className="flex flex-col md:flex-row items-center justify-center gap-12 pt-16">
-                        <Link to="/gallery" className="no-underline">
-                            <button className="bg-white/5 border border-white/20 hover:bg-white/10 text-white px-16 py-8 rounded-full text-[11px] font-black uppercase tracking-[0.4em] transition-all hover:scale-105">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 pt-16">
+                        <Link to="/gallery" className="no-underline w-full md:w-auto">
+                            <button className="w-full md:w-auto bg-white/5 border border-white/20 hover:bg-white/10 text-white px-10 md:px-16 py-6 md:py-8 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] transition-all hover:scale-105">
                                 Voir la Galerie
                             </button>
                         </Link>
-                        <Link to="/wishes" className="no-underline">
-                            <button className="bg-primary text-white px-16 py-8 rounded-full text-[11px] font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/20 transition-all hover:scale-105">
+                        <Link to="/wishes" className="no-underline w-full md:w-auto">
+                            <button className="w-full md:w-auto bg-primary text-white px-10 md:px-16 py-6 md:py-8 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.4em] shadow-2xl shadow-primary/20 transition-all hover:scale-105">
                                 Ouvrir le Puits
                             </button>
                         </Link>

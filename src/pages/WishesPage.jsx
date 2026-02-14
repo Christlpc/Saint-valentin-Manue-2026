@@ -37,7 +37,7 @@ const WishesPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="bg-[#F8F6F6] font-display overflow-hidden h-screen w-screen text-[#2D2D2D] relative"
+            className="bg-[#F8F6F6] font-display overflow-hidden min-h-screen w-full text-[#2D2D2D] relative"
         >
             {/* Cinematic Background Layer */}
             <div className="absolute inset-0 z-0">
@@ -51,12 +51,12 @@ const WishesPage = () => {
                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] pointer-events-none"></div>
             </div>
 
-            <main className="relative z-10 w-full h-full flex flex-col items-center justify-center p-12">
+            <main className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6 md:p-12">
                 {/* Navigation Home */}
-                <div className="absolute top-12 left-12">
-                    <Link to="/" className="group flex items-center gap-4 bg-white/60 backdrop-blur-xl px-8 py-5 rounded-full shadow-sm hover:shadow-xl transition-all duration-500 border border-white/40 no-underline">
-                        <span className="material-icons-round text-primary text-2xl group-hover:-translate-x-2 transition-transform">arrow_back</span>
-                        <span className="text-[11px] font-black text-gray-700 uppercase tracking-[0.3em]">Retour à l'île</span>
+                <div className="absolute top-6 md:top-12 left-6 md:left-12">
+                    <Link to="/" className="group flex items-center gap-3 md:gap-4 bg-white/60 backdrop-blur-xl px-6 md:px-8 py-3 md:py-5 rounded-full shadow-sm hover:shadow-xl transition-all duration-500 border border-white/40 no-underline">
+                        <span className="material-icons-round text-primary text-xl md:text-2xl group-hover:-translate-x-2 transition-transform">arrow_back</span>
+                        <span className="text-[9px] md:text-[11px] font-black text-gray-700 uppercase tracking-[0.2em] md:tracking-[0.3em]">Retour à l'île</span>
                     </Link>
                 </div>
 
@@ -71,7 +71,7 @@ const WishesPage = () => {
                                 exit={{ scale: 1.1, opacity: 0, filter: 'blur(10px)' }}
                                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                                 onClick={() => setIsOpened(true)}
-                                className="cursor-pointer bg-white/80 backdrop-blur-2xl p-24 rounded-[4rem] shadow-[0_50px_100px_rgba(0,0,0,0.08)] border border-white flex flex-col items-center justify-center gap-8 hover:transform hover:scale-[1.03] transition-all duration-700 text-center"
+                                className="cursor-pointer bg-white/80 backdrop-blur-2xl p-12 md:p-24 rounded-[3rem] md:rounded-[4rem] shadow-[0_50px_100px_rgba(0,0,0,0.08)] border border-white flex flex-col items-center justify-center gap-6 md:gap-8 hover:transform hover:scale-[1.03] transition-all duration-700 text-center mx-4 md:mx-0"
                             >
                                 <motion.div
                                     animate={{ y: [0, -10, 0] }}
@@ -81,8 +81,8 @@ const WishesPage = () => {
                                     <span className="material-icons-round text-primary text-6xl">mail</span>
                                 </motion.div>
                                 <div>
-                                    <h3 className="font-['Playfair_Display'] italic text-4xl text-gray-800 mb-2">Un message pour toi...</h3>
-                                    <p className="text-[10px] font-black uppercase tracking-[0.6em] text-primary animate-pulse">(Appuyer pour ouvrir)</p>
+                                    <h3 className="font-['Playfair_Display'] italic text-3xl md:text-4xl text-gray-800 mb-2 px-4">Un message pour toi...</h3>
+                                    <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] md:tracking-[0.6em] text-primary animate-pulse">(Appuyer pour ouvrir)</p>
                                 </div>
                             </motion.div>
                         ) : (
@@ -91,9 +91,9 @@ const WishesPage = () => {
                                 initial={{ y: 100, opacity: 0, rotateX: 45 }}
                                 animate={{ y: 0, opacity: 1, rotateX: 0 }}
                                 transition={{ duration: 1.2, type: 'spring', damping: 20 }}
-                                className="bg-white/90 backdrop-blur-3xl p-2 rounded-[4.5rem] shadow-[0_60px_120px_rgba(232,48,79,0.1)] border border-white overflow-hidden"
+                                className="bg-white/90 backdrop-blur-3xl p-1 md:p-2 rounded-[3.5rem] md:rounded-[4.5rem] shadow-[0_60px_120px_rgba(232,48,79,0.1)] border border-white overflow-hidden mx-4 md:mx-0"
                             >
-                                <div className="bg-white/40 border-2 border-white/60 rounded-[4.2rem] p-16 md:p-24 text-center relative overflow-hidden">
+                                <div className="bg-white/40 border-2 border-white/60 rounded-[3.2rem] md:rounded-[4.2rem] p-8 md:p-24 text-center relative overflow-hidden">
                                     {/* Decorative Elements */}
                                     <div className="absolute top-0 left-0 w-32 h-32 bg-primary/5 rounded-br-full -ml-16 -mt-16"></div>
                                     <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary/5 rounded-tl-full -mr-16 -mt-16"></div>
@@ -102,9 +102,9 @@ const WishesPage = () => {
                                         <span className="material-icons-round text-[#E8304F] text-4xl">auto_awesome</span>
                                     </div>
 
-                                    <h2 className="text-[11px] font-black uppercase tracking-[1em] text-[#E8304F] mb-16 opacity-60">Le Puits aux Souhaits</h2>
+                                    <h2 className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.5em] md:tracking-[1em] text-[#E8304F] mb-8 md:mb-16 opacity-60">Le Puits aux Souhaits</h2>
 
-                                    <div className="font-['Playfair_Display'] italic text-5xl md:text-6xl text-gray-800 leading-[1.2] mb-20 min-h-[300px] flex flex-col justify-center">
+                                    <div className="font-['Playfair_Display'] italic text-4xl md:text-6xl text-gray-800 leading-[1.2] mb-12 md:mb-20 min-h-[250px] md:min-h-[300px] flex flex-col justify-center">
                                         <motion.p initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>Mon amour,</motion.p>
                                         <AnimatePresence mode="wait">
                                             <motion.p
@@ -113,30 +113,30 @@ const WishesPage = () => {
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0, y: -20 }}
                                                 transition={{ duration: 0.5 }}
-                                                className="mt-8 text-gray-700 text-3xl md:text-4xl"
+                                                className="mt-6 md:mt-8 text-gray-700 text-2xl md:text-4xl"
                                             >
                                                 {wishes[currentWishIndex].text}
                                             </motion.p>
                                         </AnimatePresence>
                                     </div>
 
-                                    <div className="flex items-center justify-center gap-10 mb-20 opacity-30">
-                                        <span className="h-px w-20 bg-gray-400"></span>
-                                        <span className="text-[11px] font-black text-gray-600 uppercase tracking-[0.4em]">{wishes[currentWishIndex].date}</span>
-                                        <span className="h-px w-20 bg-gray-400"></span>
+                                    <div className="flex items-center justify-center gap-6 md:gap-10 mb-12 md:mb-20 opacity-30">
+                                        <span className="h-px w-12 md:w-20 bg-gray-400"></span>
+                                        <span className="text-[9px] md:text-[11px] font-black text-gray-600 uppercase tracking-[0.3em] md:tracking-[0.4em]">{wishes[currentWishIndex].date}</span>
+                                        <span className="h-px w-12 md:w-20 bg-gray-400"></span>
                                     </div>
 
                                     <div className="flex flex-col gap-8">
                                         <button
                                             onClick={nextWish}
-                                            className="w-full bg-[#E8304F] hover:bg-[#2D2D2D] text-white font-black text-[13px] uppercase tracking-[0.3em] py-8 px-12 rounded-full shadow-2xl shadow-primary/30 transition-all duration-500 hover:scale-[1.05] flex items-center justify-center gap-4 cursor-pointer"
+                                            className="w-full bg-[#E8304F] hover:bg-[#2D2D2D] text-white font-black text-[11px] md:text-[13px] uppercase tracking-[0.2em] md:tracking-[0.3em] py-6 md:py-8 px-6 md:px-12 rounded-full shadow-2xl shadow-primary/30 transition-all duration-500 hover:scale-[1.05] flex items-center justify-center gap-3 md:gap-4 cursor-pointer"
                                         >
                                             Lire le prochain voeu
-                                            <span className="material-icons-round text-2xl">east</span>
+                                            <span className="material-icons-round text-xl md:text-2xl">east</span>
                                         </button>
                                         <button
                                             onClick={() => setIsWriting(true)}
-                                            className="text-[11px] font-black text-gray-400 hover:text-primary uppercase tracking-[0.6em] transition-colors cursor-pointer"
+                                            className="text-[9px] md:text-[11px] font-black text-gray-400 hover:text-primary uppercase tracking-[0.4em] md:tracking-[0.6em] transition-colors cursor-pointer"
                                         >
                                             Écrire un nouveau souhait
                                         </button>
@@ -157,23 +157,23 @@ const WishesPage = () => {
                             className="fixed inset-0 z-[100] bg-[#F8F6F6]/95 backdrop-blur-xl flex items-center justify-center p-8"
                         >
                             <div className="w-full max-w-xl text-center">
-                                <h3 className="text-[11px] font-black uppercase tracking-[1em] text-[#E8304F] mb-12">Confie ton voeu au puits</h3>
+                                <h3 className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.5em] md:tracking-[1em] text-[#E8304F] mb-8 md:mb-12 px-6">Confie ton voeu au puits</h3>
                                 <textarea
                                     value={newWish}
                                     onChange={(e) => setNewWish(e.target.value)}
                                     placeholder="Écris ton message ici..."
-                                    className="w-full h-64 bg-transparent border-none text-4xl md:text-5xl font-['Playfair_Display'] italic text-gray-800 placeholder:text-gray-300 focus:ring-0 resize-none text-center"
+                                    className="w-full h-48 md:h-64 bg-transparent border-none text-3xl sm:text-4xl md:text-5xl font-['Playfair_Display'] italic text-gray-800 placeholder:text-gray-300 focus:ring-0 resize-none text-center px-4"
                                 />
-                                <div className="mt-16 flex flex-col items-center gap-8">
+                                <div className="mt-8 md:mt-16 flex flex-col items-center gap-6 md:gap-8 px-6">
                                     <button
                                         onClick={() => setIsWriting(false)}
-                                        className="bg-[#2D2D2D] text-white px-16 py-6 rounded-full text-[11px] font-black uppercase tracking-[0.4em] shadow-xl hover:bg-primary transition-all cursor-pointer"
+                                        className="w-full md:w-auto bg-[#2D2D2D] text-white px-10 md:px-16 py-5 md:py-6 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] shadow-xl hover:bg-primary transition-all cursor-pointer"
                                     >
                                         Lancer dans le puits
                                     </button>
                                     <button
                                         onClick={() => setIsWriting(false)}
-                                        className="text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-gray-600 transition-colors cursor-pointer"
+                                        className="text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-gray-600 transition-colors cursor-pointer"
                                     >
                                         Annuler
                                     </button>
@@ -190,8 +190,8 @@ const WishesPage = () => {
                     className="absolute bottom-12 text-center opacity-40 cursor-pointer"
                     onClick={() => setIsOpened(!isOpened)}
                 >
-                    <p className="text-[11px] font-black text-gray-500 uppercase tracking-[0.5em] flex items-center gap-4">
-                        <span className="material-icons-round text-xl text-primary">{isOpened ? 'expand_more' : 'expand_less'}</span>
+                    <p className="text-[9px] md:text-[11px] font-black text-gray-500 uppercase tracking-[0.3em] md:tracking-[0.5em] flex items-center gap-3">
+                        <span className="material-icons-round text-lg md:text-xl text-primary">{isOpened ? 'expand_more' : 'expand_less'}</span>
                         {isOpened ? 'Fermer la lettre' : 'Glissez pour voir le puits'}
                     </p>
                 </motion.div>

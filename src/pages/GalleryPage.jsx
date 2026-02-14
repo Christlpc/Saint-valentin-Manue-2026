@@ -28,33 +28,33 @@ const GalleryPage = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="bg-[#F8F6F6] min-h-screen w-full font-display p-12 text-[#2D2D2D] overflow-y-auto"
+            className="bg-[#F8F6F6] min-h-screen w-full font-display p-6 md:p-12 text-[#2D2D2D] overflow-y-auto"
         >
-            <header className="fixed top-12 left-12 z-50">
+            <header className="fixed top-6 md:top-12 left-6 md:left-12 z-50">
                 <Link to="/" className="no-underline group">
                     <motion.div
                         whileHover={{ x: -10 }}
-                        className="bg-white/60 backdrop-blur-xl border border-white/40 px-10 py-5 rounded-full shadow-lg flex items-center gap-6"
+                        className="bg-white/60 backdrop-blur-xl border border-white/40 px-6 md:px-10 py-3 md:py-5 rounded-full shadow-lg flex items-center gap-4 md:gap-6"
                     >
-                        <span className="material-icons text-primary group-hover:scale-125 transition-transform">favorite</span>
-                        <h1 className="text-[11px] font-black uppercase tracking-[0.5em] text-[#2D2D2D] m-0">L'Île Flottante</h1>
+                        <span className="material-icons text-primary group-hover:scale-125 transition-transform text-xl md:text-2xl">favorite</span>
+                        <h1 className="text-[9px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.5em] text-[#2D2D2D] m-0">L'Île Flottante</h1>
                     </motion.div>
                 </Link>
             </header>
 
             <main className="max-w-7xl mx-auto pt-32">
-                <div className="mb-20 text-center">
+                <div className="mb-12 md:mb-20 text-center px-4">
                     <motion.h2
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        className="text-7xl font-light tracking-tighter mb-4"
+                        className="text-4xl sm:text-6xl md:text-7xl font-light tracking-tighter mb-4"
                     >
                         Galerie des Moments
                     </motion.h2>
                     <div className="w-24 h-1 bg-primary/20 mx-auto rounded-full"></div>
                 </div>
 
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
+                <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-8 space-y-4 md:space-y-8 px-4 sm:px-0">
                     {assets.map((asset, index) => (
                         <motion.div
                             key={asset.id}
@@ -88,9 +88,9 @@ const GalleryPage = () => {
                     ))}
                 </div>
 
-                <div className="mt-32 pb-20 text-center">
-                    <Link to="/" className="no-underline">
-                        <button className="bg-[#2D2D2D] hover:bg-primary text-white px-16 py-6 rounded-full text-[11px] font-black uppercase tracking-[0.4em] shadow-xl transition-all duration-500 hover:scale-105">
+                <div className="mt-20 md:mt-32 pb-12 md:pb-20 text-center px-6">
+                    <Link to="/" className="no-underline w-full md:w-auto">
+                        <button className="w-full md:w-auto bg-[#2D2D2D] hover:bg-primary text-white px-10 md:px-16 py-5 md:py-6 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] shadow-xl transition-all duration-500 hover:scale-105">
                             Retour à l'Île
                         </button>
                     </Link>
